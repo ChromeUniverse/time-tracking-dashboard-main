@@ -1,0 +1,305 @@
+:root {
+  /* PRIMARY */
+  --blue: hsl(246, 80%, 60%);
+  /* work */
+  --soft-orange: hsl(15, 100%, 70%);
+  /* play  */
+  --soft-blue: hsl(195, 74%, 62%);
+  /* study */
+  --light-red: hsl(348, 100%, 68%);
+  /* exercise */
+  --lime-green: hsl(145, 58%, 55%);
+  /* social */
+  --violet: hsl(264, 64%, 52%);
+  /* self care */
+  --soft-yellow: hsl(43, 84%, 65%);
+
+
+  /* NEUTRAL */
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+}
+
+body {
+  /* height: auto; */
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--very-dark-blue);
+}
+
+.main {
+  width: 80vw;
+  max-width: 1000px;
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "sidebar work     play   study"
+    "sidebar exercise social self-care";
+  gap: 30px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: var(--dark-blue);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-profile, .sidebar-menu {
+  padding: 20px;
+}
+
+.sidebar-profile {
+  height: 70%;
+  background-color: var(--blue);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-profile-img {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 70px;
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.sidebar-profile-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-profile-top {
+  color: var(--pale-blue);
+  margin-bottom: 5px;
+  font-size: 13px;
+}
+
+.sidebar-profile-name {
+  font-weight: 300;
+}
+
+.sidebar-menu {
+  height: 28%;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  
+  align-items: flex-start;
+}
+
+.sidebar-menu-item {
+  font-size: 15px;
+  color: var(--desaturated-blue);
+  cursor: pointer;
+}
+
+.sidebar-menu-item:hover {
+  color: white;
+}
+
+.sidebar-menu-item-highlight {
+  color: white;
+}
+
+
+.card {
+  border-radius: 15px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: top -5px right 15px;
+  background-size: 60px;
+}
+
+.card-content {
+  border-radius: 15px;
+  position: absolute;
+  bottom: -2px;
+  width: 100%;
+  height: 80%;
+  background-color: var(--dark-blue);
+  padding: 20px 12%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content:hover {
+  background-color: #34397b;
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.card-ellipsis {
+  width: 17px;
+  cursor: pointer;
+}
+
+.card-ellipsis:hover {
+  filter: brightness(10000);
+}
+
+.card-data {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+}
+
+.card-current {
+  font-weight: 300;
+  font-size: 4.1vw;
+}
+
+.card-previous {
+  color: var(--pale-blue);
+  font-size: 11px;
+}
+
+.card-work {
+  grid-area: work;
+  background-color: var(--soft-orange);
+  background-image: url('/images/icon-work.svg');  
+}
+
+.card-play {
+  grid-area: play;
+  background-color: var(--soft-blue);
+  background-image: url('/images/icon-play.svg');  
+}
+
+.card-study {
+  grid-area: study;
+  background-color: var(--light-red);
+  background-image: url('/images/icon-study.svg');  
+}
+
+.card-exercise {
+  grid-area: exercise;
+  background-color: var(--lime-green);
+  background-image: url('/images/icon-exercise.svg');  
+  background-position: top 0px right 15px;
+}
+
+.card-social {
+  grid-area: social;
+  background-color: var(--violet);
+  background-image: url('/images/icon-social.svg');  
+  background-position: top -10px right 15px;
+}
+
+.card-self-care {
+  grid-area: self-care;
+  background-color: var(--soft-yellow);
+  background-image: url('/images/icon-self-care.svg');  
+}
+
+@media (max-width: 700px) {
+
+  body {
+    height: auto;
+    width: auto;
+  }
+  
+  .main {
+    width: 85vw;
+    margin: 50px 0;
+    height: auto;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas: 
+    "sidebar"
+    "work"
+    "play"
+    "study"
+    "exercise"
+    "social"
+    "self-care";
+  }
+  
+  .sidebar-profile {
+    height: 60%;
+    padding-left: 8%;
+    padding-right: 8%;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .sidebar-profile-img {
+    margin: 0;
+  }
+
+  .sidebar-profile-name {
+    font-size: 25px;
+  }
+
+  .sidebar-menu {
+    height: 40%;
+    padding-left: 8%;
+    padding-right: 8%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* margin: auto 10px; */
+  }
+
+  .sidebar-menu-item {
+    font-size: 18px;
+  }
+
+  .card {
+    height: 120px;
+  }
+
+  .card-content {
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+
+  .card-top {
+    margin-bottom: 5px;
+  }
+
+  .card-data {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-current {
+    font-size: 30px;
+  }
+
+  .card-previous {
+    margin: 0;
+  }
+
+}
