@@ -44,6 +44,7 @@ body {
   width: 80vw;
   max-width: 1000px;
   height: 80vh;
+  max-height: 520px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -174,7 +175,7 @@ body {
 
 .card-current {
   font-weight: 300;
-  font-size: 4.1vw;
+  font-size: min(4.1vw, 50px);
 }
 
 .card-previous {
